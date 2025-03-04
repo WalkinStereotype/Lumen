@@ -1,0 +1,88 @@
+using System;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public Rigidbody2D rb;
+    public SpriteRenderer sr;
+    public float gravityMultiplier = 1f;
+    public float moveSpeed;
+    public float jumpSpeed;
+    public bool isGrounded = false;
+
+    // public Animator animator;
+
+    public float xMin;
+    public float xMax;
+    public float yBoundary;
+
+    private float preservedY;
+
+    void Start()
+    {
+        rb.gravityScale = gravityMultiplier;
+    }
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (GameManager.instance.getDarkness())
+        {
+            float horizontalInput = Input.GetAxis("Horizontal"); //horizontal input (1 or -1)
+            float currentVerticalVelocity = rb.linearVelocity.y; //current vertical velocity
+
+            // Check if we fell off the map
+            if(transform.position.y < yBoundary)
+            {
+                // GameManager.instance.ShowGameOverScreen(false);
+            }
+
+            if (Input.GetKeyDown(KeyCode.W) && isGrounded){
+                currentVerticalVelocity = jumpSpeed;
+                isGrounded = false;
+                // animator.SetBool("Jump", true);
+                // sr.color = Color.red;
+            }
+            
+            Vector2 newVelocity = new Vector2(horizontalInput * moveSpeed, currentVerticalVelocity);
+            rb.linearVelocity = newVelocity;
+
+            // animator.SetFloat("Run", Mathf.Abs(horizontalInput));
+            // sr.flipX = horizontalInput < 0f;
+            // animator.SetFloat("Vertical", currentVerticalVelocity);
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            preservedY = rb.linearVelocity.y;
+            rb.linearVelocity = new Vector2(0, preservedY);
+        }
+        
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            isGrounded = true;
+            // animator.SetBool("Jump", false);
+            // sr.color = Color.green;
+        } 
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Goal"))
+        {
+            // GameManager.instance.ShowGameOverScreen(true);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player died");
+            Time.timeScale = 0;
+        } 
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player won");
+            Time.timeScale = 0;
+        }
+    
+    }
+}
