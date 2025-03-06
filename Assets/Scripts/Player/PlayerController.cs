@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpSpeed;
     public bool isGrounded = false;
+
+    public float floatingTime = 0.1f;
 
     // public Animator animator;
 
@@ -51,13 +54,27 @@ public class PlayerController : MonoBehaviour
             // sr.flipX = horizontalInput < 0f;
             // animator.SetFloat("Vertical", currentVerticalVelocity);
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            preservedY = rb.linearVelocity.y;
-            rb.linearVelocity = new Vector2(0, preservedY);
+            // preservedY = rb.linearVelocity.y;
+            // preservedY = Mathf.clamp(preservedY, p, 0);
+            // rb.linearVelocity = new Vector2(0, 0);
+
+            StartCoroutine(HoverAndDrop());
+
         }
         
 
+    }
+
+     IEnumerator HoverAndDrop()
+    {
+        rb.linearVelocity = new Vector2(0, 0); // Stop all velocity
+        rb.gravityScale = 0; // Disable gravity
+
+        yield return new WaitForSeconds(floatingTime); // Hover duration
+
+        rb.gravityScale = gravityMultiplier; // Re-enable gravity
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,7 +95,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player died");
             Time.timeScale = 0;
         } 
-        else if (collision.gameObject.CompareTag("Enemy"))
+        else if (collision.gameObject.CompareTag("Goal"))
         {
             Debug.Log("Player won");
             Time.timeScale = 0;
