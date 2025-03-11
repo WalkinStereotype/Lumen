@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float gravityMultiplier = 1f;
     public float moveSpeed;
     public float jumpSpeed;
-    public bool isGrounded = false;
+    private bool isGrounded = true;
 
     public float floatingTime = 0.1f;
 
@@ -81,23 +81,35 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
+            
+            if (!isGrounded)
+            {
+                // Audio
+                if(GameManager.instance.getDarkness())
+                {
+                    AudioManager.instance.PlayDarkThud();
+                } else {
+                    AudioManager.instance.PlayLightThud();
+                }
+            }
+            
+
             isGrounded = true;
+
             // animator.SetBool("Jump", false);
             // sr.color = Color.green;
         } 
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Goal"))
-        {
-            // GameManager.instance.ShowGameOverScreen(true);
-        }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Player died");
+            AudioManager.instance.PlayDeath();
             Time.timeScale = 0;
         } 
         else if (collision.gameObject.CompareTag("Goal"))
         {
             Debug.Log("Player won");
+            AudioManager.instance.PlayWin();
             Time.timeScale = 0;
         }
     
