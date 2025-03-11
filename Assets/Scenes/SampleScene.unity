@@ -3099,6 +3099,37 @@ MonoBehaviour:
   win: {fileID: 8300000, guid: 6d6ac78b1652a524291ea1cb89c36417, type: 3}
   orbThud: {fileID: 8300000, guid: b4ccdd0d4cfe7264ebabb2bfc7c1ff6c, type: 3}
   orbUnlock: {fileID: 8300000, guid: 5b79f8d8c4b28444cbefc60fab7c1121, type: 3}
+--- !u!1 &1719931181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1719931182}
+  m_Layer: 0
+  m_Name: PlayerSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1719931182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719931181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.81, y: -4.04, z: 0.043975096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810726850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,3 +3412,4 @@ SceneRoots:
   - {fileID: 544726860}
   - {fileID: 1465780788}
   - {fileID: 1467962905}
+  - {fileID: 1719931182}

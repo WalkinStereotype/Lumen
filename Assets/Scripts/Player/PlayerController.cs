@@ -21,9 +21,12 @@ public class PlayerController : MonoBehaviour
 
     private float preservedY;
 
+    private Vector3 spawnPoint;
+
     void Start()
     {
         rb.gravityScale = gravityMultiplier;
+        spawnPoint = transform.position;
     }
     // Update is called once per frame
     void Update()
@@ -35,18 +38,19 @@ public class PlayerController : MonoBehaviour
             float currentVerticalVelocity = rb.linearVelocity.y; //current vertical velocity
 
             // Check if we fell off the map
-            if(transform.position.y < yBoundary)
+            if (transform.position.y < yBoundary)
             {
                 // GameManager.instance.ShowGameOverScreen(false);
             }
 
-            if (Input.GetKeyDown(KeyCode.W) && isGrounded){
+            if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+            {
                 currentVerticalVelocity = jumpSpeed;
                 isGrounded = false;
                 // animator.SetBool("Jump", true);
                 // sr.color = Color.red;
             }
-            
+
             Vector2 newVelocity = new Vector2(horizontalInput * moveSpeed, currentVerticalVelocity);
             rb.linearVelocity = newVelocity;
 
@@ -63,11 +67,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(HoverAndDrop());
 
         }
-        
+
 
     }
 
-     IEnumerator HoverAndDrop()
+    IEnumerator HoverAndDrop()
     {
         rb.linearVelocity = new Vector2(0, 0); // Stop all velocity
         rb.gravityScale = 0; // Disable gravity
@@ -81,37 +85,40 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            
+
             if (!isGrounded)
             {
                 // Audio
-                if(GameManager.instance.getDarkness())
+                if (GameManager.instance.getDarkness())
                 {
                     AudioManager.instance.PlayDarkThud();
-                } else {
+                }
+                else
+                {
                     AudioManager.instance.PlayLightThud();
                 }
             }
-            
+
 
             isGrounded = true;
 
             // animator.SetBool("Jump", false);
             // sr.color = Color.green;
-        } 
+        }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Player died");
             AudioManager.instance.PlayDeath();
-            Time.timeScale = 0;
-        } 
+            Time.timeScale = 1;
+            transform.position = spawnPoint;
+        }
         else if (collision.gameObject.CompareTag("Goal"))
         {
             Debug.Log("Player won");
             AudioManager.instance.PlayWin();
             Time.timeScale = 0;
         }
-    
+
     }
 }
