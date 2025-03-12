@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using Unity.Mathematics;
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public SpriteRenderer sr;
+    public Animator anim;
     public float gravityMultiplier = 1f;
     public float moveSpeed;
     public float jumpSpeed;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float preservedY;
 
     private Vector3 spawnPoint;
+    bool facing = false;
 
     void Start()
     {
@@ -34,7 +37,9 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.instance.getDarkness())
         {
+            anim.SetBool("Concentrate", false);
             float horizontalInput = Input.GetAxis("Horizontal"); //horizontal input (1 or -1)
+            
             float currentVerticalVelocity = rb.linearVelocity.y; //current vertical velocity
 
             // Check if we fell off the map
@@ -53,6 +58,14 @@ public class PlayerController : MonoBehaviour
 
             Vector2 newVelocity = new Vector2(horizontalInput * moveSpeed, currentVerticalVelocity);
             rb.linearVelocity = newVelocity;
+            anim.SetFloat("Velocity", math.abs(newVelocity.x));
+            if (newVelocity.x < 0){
+                facing = true;
+            }
+            else if (newVelocity.x > 0){
+                facing = false;
+            }
+            sr.flipX = facing;
 
             // animator.SetFloat("Run", Mathf.Abs(horizontalInput));
             // sr.flipX = horizontalInput < 0f;
@@ -65,6 +78,7 @@ public class PlayerController : MonoBehaviour
             // rb.linearVelocity = new Vector2(0, 0);
 
             StartCoroutine(HoverAndDrop());
+            anim.SetBool("Concentrate", true);
 
         }
 
