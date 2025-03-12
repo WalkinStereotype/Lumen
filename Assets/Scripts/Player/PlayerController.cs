@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.instance.getDarkness())
         {
-            anim.SetBool("Concentrate", false);
             float horizontalInput = Input.GetAxis("Horizontal"); //horizontal input (1 or -1)
             
             float currentVerticalVelocity = rb.linearVelocity.y; //current vertical velocity
@@ -59,6 +58,7 @@ public class PlayerController : MonoBehaviour
             Vector2 newVelocity = new Vector2(horizontalInput * moveSpeed, currentVerticalVelocity);
             rb.linearVelocity = newVelocity;
             anim.SetFloat("Velocity", math.abs(newVelocity.x));
+            anim.SetBool("Concentrate", false);
             if (newVelocity.x < 0){
                 facing = true;
             }
