@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             // sr.color = Color.green;
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Void"))
         {
             Debug.Log("Player died");
             AudioManager.instance.PlayDeath();
