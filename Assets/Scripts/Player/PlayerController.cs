@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using Unity.Mathematics;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.getDarkness())
         {
             float horizontalInput = Input.GetAxis("Horizontal"); //horizontal input (1 or -1)
-            
+
             float currentVerticalVelocity = rb.linearVelocity.y; //current vertical velocity
 
             // Check if we fell off the map
@@ -59,10 +60,12 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = newVelocity;
             anim.SetFloat("Velocity", math.abs(newVelocity.x));
             anim.SetBool("Concentrate", false);
-            if (newVelocity.x < 0){
+            if (newVelocity.x < 0)
+            {
                 facing = true;
             }
-            else if (newVelocity.x > 0){
+            else if (newVelocity.x > 0)
+            {
                 facing = false;
             }
             sr.flipX = facing;
@@ -131,8 +134,19 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player won");
             AudioManager.instance.PlayWin();
-            Time.timeScale = 0;
+            StartCoroutine(WaitAndLoadScene(2f));
         }
+    }
 
+    private IEnumerator WaitAndLoadScene(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        // Get the current scene index and load the next scene
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
+
+        // Ensure time scale is set back to normal
+        Time.timeScale = 1;
     }
 }
