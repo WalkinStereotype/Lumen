@@ -6,32 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    //Get rigid body and sprite renderer and animation
     public Rigidbody2D rb;
     public SpriteRenderer sr;
     public Animator anim;
+    
+    private bool facing = false; //For animation
+
+    //Movement constants
     public float gravityMultiplier = 1f;
     public float moveSpeed;
     public float jumpSpeed;
-    private bool isGrounded = true;
-
     public float floatingTime = 0.1f;
-
-    // public Animator animator;
-
     public float xMin;
     public float xMax;
     public float yBoundary;
 
     private float preservedY;
 
+    //Respawn coordinate
     private Vector3 spawnPoint;
-    bool facing = false;
+
+    //GroundDetection Script
+    private GroundDetection feet;
 
     void Start()
     {
         rb.gravityScale = gravityMultiplier;
         spawnPoint = transform.position;
+        feet = GetComponent<GroundDetection>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -48,10 +53,9 @@ public class PlayerController : MonoBehaviour
                 // GameManager.instance.ShowGameOverScreen(false);
             }
 
-            if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+            if (Input.GetKeyDown(KeyCode.W) && feet.GetIsGrounded())
             {
                 currentVerticalVelocity = jumpSpeed;
-                isGrounded = false;
                 // animator.SetBool("Jump", true);
                 // sr.color = Color.red;
             }
@@ -100,29 +104,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-
-            if (!isGrounded)
-            {
-                // Audio
-                if (GameManager.instance.getDarkness())
-                {
-                    AudioManager.instance.PlayDarkThud();
-                }
-                else
-                {
-                    AudioManager.instance.PlayLightThud();
-                }
-            }
-
-
-            isGrounded = true;
-
-            // animator.SetBool("Jump", false);
-            // sr.color = Color.green;
-        }
-
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Void"))
         {
             Debug.Log("Player died");
