@@ -9,7 +9,7 @@ public class SlotColliderChecker : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Key"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             internalKey.SetActive(true);
             gate.SetActive(true);
             AudioManager.instance.PlayOrbUnlock();

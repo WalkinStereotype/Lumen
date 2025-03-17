@@ -12837,6 +12837,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c534b74c1c3f6524bb5f52416eeadc7e, type: 3}
+--- !u!1 &938623239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2883491679902723994, guid: c534b74c1c3f6524bb5f52416eeadc7e, type: 3}
+  m_PrefabInstance: {fileID: 938623238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1159359065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12894,6 +12899,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 802f11557b620cc439ef5b51e7463d09, type: 3}
+--- !u!1 &1159359066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8883882015584388871, guid: 802f11557b620cc439ef5b51e7463d09, type: 3}
+  m_PrefabInstance: {fileID: 1159359065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1175369807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12960,9 +12970,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 729835161321700258, guid: cb5a7db5ff24ab44b806f2b3f6bf1b1a, type: 3}
+      propertyPath: keyObject
+      value: 
+      objectReference: {fileID: 1159359066}
+    - target: {fileID: 729835161321700258, guid: cb5a7db5ff24ab44b806f2b3f6bf1b1a, type: 3}
+      propertyPath: gateObject
+      value: 
+      objectReference: {fileID: 1934367214}
+    - target: {fileID: 729835161321700258, guid: cb5a7db5ff24ab44b806f2b3f6bf1b1a, type: 3}
       propertyPath: spriteObject
       value: 
       objectReference: {fileID: 1474801348}
+    - target: {fileID: 729835161321700258, guid: cb5a7db5ff24ab44b806f2b3f6bf1b1a, type: 3}
+      propertyPath: slotKeyObject
+      value: 
+      objectReference: {fileID: 938623239}
     - target: {fileID: 4953313602534950391, guid: cb5a7db5ff24ab44b806f2b3f6bf1b1a, type: 3}
       propertyPath: m_Name
       value: Managers

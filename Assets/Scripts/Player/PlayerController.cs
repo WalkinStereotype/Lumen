@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -41,6 +42,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            Respawn();
+            return;
+        }
+        
         if (GameManager.instance.getDarkness())
         {
             float horizontalInput = Input.GetAxis("Horizontal"); //horizontal input (1 or -1)
@@ -108,10 +115,13 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player died");
             AudioManager.instance.PlayDeath();
-            Time.timeScale = 1;
-            transform.position = spawnPoint;
+            Respawn();
         }
-        else if (collision.gameObject.CompareTag("Goal"))
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Goal"))
         {
             Debug.Log("Player won");
             AudioManager.instance.PlayWin();
@@ -129,5 +139,11 @@ public class PlayerController : MonoBehaviour
 
         // Ensure time scale is set back to normal
         Time.timeScale = 1;
+    }
+
+    private void Respawn()
+    {
+        transform.position = spawnPoint;
+        GameManager.instance.RestartLevel();
     }
 }
