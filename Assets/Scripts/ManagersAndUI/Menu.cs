@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
+	public Canvas menuCanvas;
+	public Canvas creditsCanvas;
 	public void PlayGame()
 	{
 		SceneManager.LoadScene(1);
@@ -11,5 +14,17 @@ public class Menu : MonoBehaviour
 	public void QuitGame()
 	{
 		Application.Quit();
+	}
+
+	public void HideCredits()
+	{
+		creditsCanvas.gameObject.SetActive(false);
+		menuCanvas.gameObject.SetActive(true);
+	}
+
+	public void ShowCredits()
+	{
+		menuCanvas.gameObject.SetActive(false);
+		creditsCanvas.gameObject.SetActive(true);
 	}
 }

@@ -9,6 +9,8 @@ TagManager:
   - Key
   - Goal
   - Void
+  - MainCanvas
+  - CreditsCanvas
   layers:
   - Default
   - TransparentFX
