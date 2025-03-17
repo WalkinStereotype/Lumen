@@ -92,7 +92,9 @@ public class PlayerController : MonoBehaviour
             // rb.linearVelocity = new Vector2(0, 0);
 
             StartCoroutine(HoverAndDrop());
-            anim.SetBool("Concentrate", true);
+            if (anim.GetBool("Concentrate") == false){
+                anim.SetBool("Concentrate", true);
+            }
 
         }
 

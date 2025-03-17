@@ -1,16 +1,31 @@
 fileFormatVersion: 2
-guid: 6f111064a917694408233fd8147c9b82
+guid: e56a85251b39d194b9778db4f778b3c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 114553610759116455
-    second: Testing_0
+      213: -1395416469781410632
+    second: Lumen Glowing_0
   - first:
-      213: -401314048402350705
-    second: Testing_1
+      213: 8671061675198836929
+    second: Lumen Glowing_1
   - first:
-      213: -3118313020139653365
-    second: Testing_2
+      213: -1414819597941710269
+    second: Lumen Glowing_2
+  - first:
+      213: 9010400009983645951
+    second: Lumen Glowing_3
+  - first:
+      213: 7884766342550171108
+    second: Lumen Glowing_4
+  - first:
+      213: -2550962897563516342
+    second: Lumen Glowing_5
+  - first:
+      213: -5625547969307402639
+    second: Lumen Glowing_6
+  - first:
+      213: 728840008157685186
+    second: Lumen Glowing_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,11 +117,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Testing_0
+      name: Lumen Glowing_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,16 +147,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 30cf93db5b732f241a92f329d542e528
-      internalID: 597115666
+      spriteID: 8bc03fc2d1c72ace0800000000000000
+      internalID: -1395416469781410632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Testing_1
+      name: Lumen Glowing_1
       rect:
         serializedVersion: 2
         x: 32
@@ -141,16 +169,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 80f7da472534bf1428639cf2a4c68090
-      internalID: 1720158458
+      spriteID: 1c0fabff6acc55870800000000000000
+      internalID: 8671061675198836929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Testing_2
+      name: Lumen Glowing_2
       rect:
         serializedVersion: 2
         x: 64
@@ -163,10 +191,76 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c0481b921de8650468f596f4ab90fd11
-      internalID: 664386329
+      spriteID: 3426c6b521d8d5ce0800000000000000
+      internalID: -1414819597941710269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lumen Glowing_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff85047e11f5b0d70800000000000000
+      internalID: 9010400009983645951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lumen Glowing_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eda8a896315c6d60800000000000000
+      internalID: 7884766342550171108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lumen Glowing_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42868f92c8299cd0800000000000000
+      internalID: -2550962897563516342
       vertices: []
       indices: 
       edges: []
@@ -175,7 +269,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d65963eeb6ca4164ba7f004986427daa
+    spriteID: 9df3188568724154b90e75c8cf715206
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +279,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Testing_0: 597115666
-      Testing_1: 1720158458
-      Testing_2: 664386329
+      Lumen Glowing_0: -1395416469781410632
+      Lumen Glowing_1: 8671061675198836929
+      Lumen Glowing_2: -1414819597941710269
+      Lumen Glowing_3: 9010400009983645951
+      Lumen Glowing_4: 7884766342550171108
+      Lumen Glowing_5: -2550962897563516342
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

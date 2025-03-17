@@ -8,6 +8,7 @@ public class EnemyBasicController : MonoBehaviour
     // public float patrolInterval = 3f;
     private bool goingRight = true;
     private Vector2 preservedMotion;
+    public SpriteRenderer sr;
 
     public float minX;
     public float maxX;
@@ -49,6 +50,7 @@ public class EnemyBasicController : MonoBehaviour
 
             if(goingRight)
             {
+                sr.flipX = false;
                 if (xPos >= maxX)
                 {
                     rb.linearVelocity *= -1;
@@ -58,6 +60,7 @@ public class EnemyBasicController : MonoBehaviour
             }
             else
             {
+                sr.flipX = true;
                 if (xPos <= minX)
                 {
                     rb.linearVelocity *= -1;
