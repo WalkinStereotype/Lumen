@@ -1142,6 +1142,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lumen
       objectReference: {fileID: 0}
+    - target: {fileID: 2679748452775094074, guid: ca8c352f15a69a942847dead8be1b106, type: 3}
+      propertyPath: m_Size.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679748452775094074, guid: ca8c352f15a69a942847dead8be1b106, type: 3}
+      propertyPath: m_Size.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679748452775094074, guid: ca8c352f15a69a942847dead8be1b106, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679748452775094074, guid: ca8c352f15a69a942847dead8be1b106, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679748452775094074, guid: ca8c352f15a69a942847dead8be1b106, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 4350376302549513549, guid: ca8c352f15a69a942847dead8be1b106, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.68
