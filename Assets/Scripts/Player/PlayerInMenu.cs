@@ -16,9 +16,14 @@ public class PlayerInMenu : MonoBehaviour
 
     private bool spaceDown = false;
 
+    public GameObject SpaceText;
+    public GameObject EnemySprite;
+
 
     void Start()
     {
+        SpaceText.SetActive(true);
+        EnemySprite.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,11 +53,16 @@ public class PlayerInMenu : MonoBehaviour
                 anim.SetBool("Concentrate", true);
             }
 
+            SpaceText.SetActive(false);
+            EnemySprite.SetActive(true);
+
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             spaceDown = false;
             anim.SetBool("Concentrate", false);
+            SpaceText.SetActive(true);
+            EnemySprite.SetActive(false);
         }
 
 
