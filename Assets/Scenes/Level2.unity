@@ -9257,8 +9257,8 @@ MonoBehaviour:
   m_text: Enemies only move in the darkness and keep to their own space. Don't bother
     them and they won't bother you
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e5b843a7397a7b944be242aeca6b197b, type: 2}
+  m_sharedMaterial: {fileID: 3425946453676136539, guid: e5b843a7397a7b944be242aeca6b197b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9352,7 +9352,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 3425946453676136539, guid: e5b843a7397a7b944be242aeca6b197b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
