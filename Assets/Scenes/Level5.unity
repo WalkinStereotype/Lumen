@@ -7820,6 +7820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate
       objectReference: {fileID: 0}
+    - target: {fileID: 6040348613415366468, guid: 6ea1cf66587d4c944bba723b7156d492, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339625990725106379, guid: 6ea1cf66587d4c944bba723b7156d492, type: 3}
       propertyPath: m_Enabled
       value: 1
