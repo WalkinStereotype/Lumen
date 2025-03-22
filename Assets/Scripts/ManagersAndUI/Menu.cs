@@ -27,4 +27,9 @@ public class Menu : MonoBehaviour
 		menuCanvas.gameObject.SetActive(false);
 		creditsCanvas.gameObject.SetActive(true);
 	}
+
+	public void LoadMenu()
+	{
+		SceneManager.LoadScene(0);
+	}
 }
