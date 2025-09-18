@@ -14,13 +14,13 @@ public class PlayerInEndscne : MonoBehaviour
     
     private bool facing = false; //For animation
 
-    private bool spaceDown = false;
+    private bool shiftDown = false;
 
     // Update is called once per frame
     void Update()
     {
         
-        if (!spaceDown)
+        if (!shiftDown)
         {
             float horizontalInput = Input.GetAxis("Horizontal"); //horizontal input (1 or -1)
 
@@ -36,17 +36,17 @@ public class PlayerInEndscne : MonoBehaviour
             sr.flipX = facing;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            spaceDown = true;
+            shiftDown = true;
             if (anim.GetBool("Concentrate") == false){
                 anim.SetBool("Concentrate", true);
             }
 
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            spaceDown = false;
+            shiftDown = false;
             anim.SetBool("Concentrate", false);
         }
 

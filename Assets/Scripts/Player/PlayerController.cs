@@ -60,11 +60,13 @@ public class PlayerController : MonoBehaviour
                 // GameManager.instance.ShowGameOverScreen(false);
             }
 
-            if (Input.GetKeyDown(KeyCode.W) && feet.GetIsGrounded())
+            if (Input.GetKeyDown(KeyCode.Space) && feet.GetIsGrounded())
             {
                 currentVerticalVelocity = jumpSpeed;
                 // animator.SetBool("Jump", true);
                 // sr.color = Color.red;
+
+                Debug.Log("jumping");
             }
 
             Vector2 newVelocity = new Vector2(horizontalInput * moveSpeed, currentVerticalVelocity);
@@ -85,16 +87,19 @@ public class PlayerController : MonoBehaviour
             // sr.flipX = horizontalInput < 0f;
             // animator.SetFloat("Vertical", currentVerticalVelocity);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             // preservedY = rb.linearVelocity.y;
             // preservedY = Mathf.clamp(preservedY, p, 0);
             // rb.linearVelocity = new Vector2(0, 0);
 
             StartCoroutine(HoverAndDrop());
-            if (anim.GetBool("Concentrate") == false){
+            if (anim.GetBool("Concentrate") == false)
+            {
                 anim.SetBool("Concentrate", true);
             }
+
+            Debug.Log("concentrating");
 
         }
 
