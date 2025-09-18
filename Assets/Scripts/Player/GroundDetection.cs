@@ -5,10 +5,12 @@ using Unity.Mathematics;
 public class GroundDetection : MonoBehaviour
 {
     private bool isGrounded;
+    private bool playedThud;
 
     void Start()
     {
         isGrounded = true;
+        playedThud = false;
     }
     
     private void OnTriggerEnter2D(Collider2D other)

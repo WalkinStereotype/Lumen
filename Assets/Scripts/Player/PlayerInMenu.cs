@@ -14,15 +14,15 @@ public class PlayerInMenu : MonoBehaviour
     
     private bool facing = false; //For animation
 
-    private bool spaceDown = false;
+    private bool shiftDown = false;
 
-    public GameObject SpaceText;
+    public GameObject ShiftText;
     public GameObject EnemySprite;
 
 
     void Start()
     {
-        SpaceText.SetActive(true);
+        ShiftText.SetActive(true);
         EnemySprite.SetActive(false);
     }
 
@@ -30,7 +30,7 @@ public class PlayerInMenu : MonoBehaviour
     void Update()
     {
         
-        if (!spaceDown)
+        if (!shiftDown)
         {
             float horizontalInput = Input.GetAxis("Horizontal"); //horizontal input (1 or -1)
 
@@ -46,22 +46,22 @@ public class PlayerInMenu : MonoBehaviour
             sr.flipX = facing;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            spaceDown = true;
+            shiftDown = true;
             if (anim.GetBool("Concentrate") == false){
                 anim.SetBool("Concentrate", true);
             }
 
-            SpaceText.SetActive(false);
+            ShiftText.SetActive(false);
             EnemySprite.SetActive(true);
 
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            spaceDown = false;
+            shiftDown = false;
             anim.SetBool("Concentrate", false);
-            SpaceText.SetActive(true);
+            ShiftText.SetActive(true);
             EnemySprite.SetActive(false);
         }
 

@@ -44,12 +44,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isDark && Input.GetKeyDown(KeyCode.Space))
+        if (isDark && Input.GetKeyDown(KeyCode.LeftShift))
         {
             isDark = false;
             spriteObject.SetActive(false);
         }
-        else if (!isDark && Input.GetKeyUp(KeyCode.Space))
+        else if (!isDark && Input.GetKeyUp(KeyCode.LeftShift))
         {
             isDark = true;
             spriteObject.SetActive(true);
